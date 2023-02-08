@@ -29,7 +29,7 @@ class ProfileDetail(APIView):
             return profile
         except Profile.DoesNotExist:
             raise Http404
-    
+
     def get(self, request, pk):
         profile = self.get_object(pk)
         serializer = ProfileSerializer(profile, context={'request': request})
