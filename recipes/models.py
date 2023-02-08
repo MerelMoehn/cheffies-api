@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ingredients.models import Ingredient, Ingredient_needed
 
 
 class Recipe(models.Model):
@@ -18,10 +17,13 @@ class Recipe(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     ingredients = models.ManyToManyField(
-        Ingredient, related_name="recipes", through="Ingredient_needed")
+        "ingredients.Ingredient", related_name="recipes",
+        through="ingredients.Ingredient_needed")
     title = models.CharField(max_length=100)
     instructions = models.TextField(blank=False)
-    category = models.CharField(choices=recipe_categories, default='main')
+    category = models.CharField(max_length=30,
+                                choices=recipe_categories,
+                                default='main')
     cooking_time = models.IntegerField(blank=False)
     prep_time = models.IntegerField(blank=False)
     image = models.ImageField(
