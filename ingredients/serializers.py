@@ -3,11 +3,18 @@ from .models import Ingredient
 
 
 class IngredientSerializer(serializers.ModelSerializer):
-    recipe_rel = serializers.ReadOnlyField()
 
     class Meta:
         model = Ingredient
         fields = [
-            'id', 'ingredient', 'recipe', 'measure_unit', 'amount_required',
-            'created_at', 'recipe_rel',
+            'id', 'name', 'recipe', 'measure_unit', 'amount_required',
+            'created_at', 'owner',
         ]
+
+    def create(self, validated_data):
+        try:
+            return super().create(validated_data)
+        except IntegrityError:
+            raise serializers.ValidationError({
+                'detail': 'possible duplicate'
+            })

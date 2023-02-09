@@ -11,3 +11,13 @@ class IngredientList(generics.ListCreateAPIView):
     serializer_class = IngredientSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Ingredient.objects.all()
+
+
+class IngredientDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    If you are the owner you can retreive, update and delete
+    a ingredient
+    """
+    serializer_class = IngredientSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Ingredient.objects.all()
