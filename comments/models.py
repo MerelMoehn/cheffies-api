@@ -4,6 +4,7 @@ from recipes.models import Recipe
 
 # This code is based on the Code Institute walkthrough video
 
+
 class Comment(models.Model):
     """
     The comment model
