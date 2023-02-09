@@ -1,19 +1,13 @@
 from rest_framework import serializers
-from .models import Ingredient, Ingredient_needed
+from .models import Ingredient
 
 
 class IngredientSerializer(serializers.ModelSerializer):
+    recipe_rel = serializers.ReadOnlyField()
 
     class Meta:
         model = Ingredient
         fields = [
-            'id', 'name', 'created_at'
-        ]
-
-
-class Ingredient_neededSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Ingredient_needed()
-        fields = [
-            'id', 'ingredient', 'recipe', 'amount_required', 'measure_unit'
+            'id', 'ingredient', 'recipe', 'measure_unit', 'amount_required',
+            'created_at', 'recipe_rel',
         ]

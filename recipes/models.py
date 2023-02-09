@@ -16,9 +16,6 @@ class Recipe(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    ingredients = models.ManyToManyField(
-        "ingredients.Ingredient", related_name="recipes",
-        through="ingredients.Ingredient_needed")
     title = models.CharField(max_length=100)
     instructions = models.TextField(blank=False)
     category = models.CharField(max_length=30,
