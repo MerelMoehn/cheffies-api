@@ -10,11 +10,13 @@ from .models import Profile
 class ProfileList(APIView):
     """
     List to get all profiles
-    It does not include a create method, as profile creation is handled by signals
+    It does not include a create method,
+    as profile creation is handled by signals
     """
     def get(self, request):
         profiles = Profile.objects.all()
-        serializer = ProfileSerializer(profiles, many=True, context={'request': request})
+        serializer = ProfileSerializer(profiles, many=True,
+                                       context={'request': request})
         return Response(serializer.data)
 
 
@@ -37,7 +39,8 @@ class ProfileDetail(APIView):
 
     def put(self, request, pk):
         profile = self.get_object(pk)
-        serializer = ProfileSerializer(profile, data=request.data, context={'request': request})
+        serializer = ProfileSerializer(profile, data=request.data,
+                                       context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
