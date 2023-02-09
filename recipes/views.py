@@ -3,12 +3,13 @@ from cheffies_api.permissions import IsOwnerOrReadOnly
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Recipe
+from ingredients.models import Ingredient
 from .serializers import RecipeSerializer
 
 
 class RecipeList(generics.ListCreateAPIView):
     """
-    List or create recipe(s) when you are logged in 
+    List or create recipe(s) when you are logged in
     When a recipe is created it is related to an owner/user
     """
     serializer_class = RecipeSerializer
@@ -33,6 +34,7 @@ class RecipeList(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'title',
+        'ingredients__name',
     ]
     ordering_fields = [
         'likes_count',

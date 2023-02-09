@@ -1,6 +1,7 @@
 from rest_framework import generics, permissions
 from cheffies_api.permissions import IsOwnerOrReadOnly
 from .serializers import CommentSerializer, CommentDetailSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Comment
 
 
@@ -12,6 +13,8 @@ class CommentList(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Comment.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['recipe']
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

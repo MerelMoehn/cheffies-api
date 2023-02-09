@@ -13,7 +13,8 @@ class Ingredient(models.Model):
         ('tablespoon', 'tablespoon(s)'), ('item', 'item'),
         ('ml', 'ml'), ('l', 'L'), ('kg', 'kg'), ('ounce', 'ounce')
     ]
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ingredients")
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE,
+                               related_name="ingredients")
     name = models.CharField(max_length=50)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

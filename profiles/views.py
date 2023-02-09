@@ -25,6 +25,8 @@ class ProfileList(generics.ListAPIView):
     ]
     filterset_fields = [
         'owner__following__followed__profile',
+        # get all profiles that are followed by a profile, given its id
+        'owner__followed__owner__profile',
     ]
     ordering_fields = [
         'recipe_count',

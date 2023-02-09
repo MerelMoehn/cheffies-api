@@ -6,7 +6,7 @@ from .serializers import IngredientSerializer
 
 class IngredientList(generics.ListCreateAPIView):
     """
-    List or create ingredient(s) when you are logged in 
+    List or create ingredient(s) when you are logged in
     """
     serializer_class = IngredientSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
