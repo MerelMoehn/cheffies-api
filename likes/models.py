@@ -10,7 +10,7 @@ class Like(models.Model):
     The like model which is related to Owner(instance)
     And a Recipe(instance)
     'unique_together' is added to make sure
-    a user can't like the same post twice.
+    a user can't like the same recipe twice.
     """
     recipe = models.ForeignKey(
         Recipe, related_name='likes', on_delete=models.CASCADE

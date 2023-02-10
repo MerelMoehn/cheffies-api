@@ -3,7 +3,6 @@ from cheffies_api.permissions import IsOwnerOrReadOnly
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Recipe
-from ingredients.models import Ingredient
 from .serializers import RecipeSerializer
 
 
@@ -32,8 +31,11 @@ class RecipeList(generics.ListCreateAPIView):
         'owner__profile',
     ]
     search_fields = [
+        # search for recipe based on user
         'owner__username',
+        # search for recipe based on title
         'title',
+        # search for recipes based on ingredient
         'ingredients__name',
     ]
     ordering_fields = [

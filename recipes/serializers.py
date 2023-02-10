@@ -1,6 +1,14 @@
 from rest_framework import serializers
 from .models import Recipe
 from likes.models import Like
+from ingredients.models import Ingredient
+
+
+class IngredientRecSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ingredient
+        fields = ('recipe', 'name', 'owner', 'created_at', 
+                  'amount_required', 'measure_unit')
 
 
 class RecipeSerializer(serializers.ModelSerializer):
