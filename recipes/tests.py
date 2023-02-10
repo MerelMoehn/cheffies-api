@@ -72,7 +72,6 @@ class RecipeDetailViewTests(APITestCase):
             'cooking_time': '23',
             'prep_time': '23'})
         recipe = Recipe.objects.filter(pk=1).first()
-        print(recipe)
         self.assertEqual(recipe.title, 'a new title')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
