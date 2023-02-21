@@ -68,6 +68,29 @@ The project was planned and built in three sprints each consisting of two weeks.
 
 # User stories
 The user stories for the cheffies-API are repetitive. For each App we create a model, the URL pattern, the serializer, include it in the installed apps, etc. Therefore, the stories are not as extensive as they are in the Cheffies React (Front-end) repository. 
+After finishing this part I realized I should have used the same approach of user stories as I would in the front-end application. However, when starting this project I was looking at it more as a developer not as a user of the site. Therefore, my user stories are not correctly set up. With this table I hope to show you the relationship between the basic user story and the functionality that it provides. But please note, the user stories deviate from what is presented below.
+I have chosen not to change all the user stories afterward because that does not reflect the approach actually taken. I learned a lesson regarding back-end api stories. The user stories of the front-end application will be up to standard.
+
+| As a/an | I want to be able to... | So that I can... |
+| --- | ----------- | ----------- | ----------- |
+ | [Profile App & authentication](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22User+Apps%22+is%3Aclosed) | 
+ | UnRegistered User | to Register | to create my own profile and recipes | 
+ | Registered User | log-in & out | So I can make use of the cheffies application | 
+ | Registered User | Update my profile | So I can show who I am with others | 
+  | [Recipes & Ingredients App](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22Recipe+Apps%22+is%3Aclosed) | 
+ | Registered User | Create, update & delete recipes | So that I can share my recipes with others| 
+ | Registered User | Create, update & delete recipes | So that I can add/delete/update ingredients to my recipes | 
+ | [Social App](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22Social+Apps%22+is%3Aclosed) | 
+ | Registered User | Like a recipe | To show others that I liked the recipe | 
+ | Registered User | Comment on a recipe | To show others what I think of the recipe | 
+ | Registered User | Follow another user | To see their recipes on my feed | 
+  | [Project Prerequisites](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22Set+Up%22+is%3Aclosed) | 
+ | Developer | Set up my project | To ensure I can deploy & test early on |
+ | Developer | Create the Data Models | Support my application with data | 
+ | Developer | Create automated tests | So I can ensure my application is working properly| 
+  | [Documentation](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3Adocumentation+is%3Aclosed) |
+| Developer | Create a LucidChart Data Model | Ensure my Data Models are designed & documented correctly | 
+
 
 # Data model & CRUD breakdown
 [Click here for related user story.](https://github.com/MerelMoehn/cheffies-api/issues/1)
