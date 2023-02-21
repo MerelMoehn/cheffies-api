@@ -1,108 +1,201 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+#Cheffies-API
 
-Welcome MerelMoehn,
+Welcome,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+In this document I will explain the reason and approach behind the Cheffies API app. Imagine this, you just finished working and craving some food. However, you didn't do your weekly groceries so you have to come up with some recipe on the spot. You won't be the only one that is lost for inspiration in such moments. Therefore, I created the app Cheffies, and this is the API backend for this project. You can get your daily recipe inspiration by following others, commenting to improve others, and create a mealplan by liking other recipes.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Cheffies-API is the backend for the Cheffies application which has the goal to be a socially interactive and inspirational platform for recipes.
 
-## Gitpod Reminders
+The last update to this file was: **March, 2023**
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# Deployed project
+The app can be accessed via the following link: [Click to go to Website](https://cheffies-api.herokuapp.com/) 
 
-`python3 -m http.server`
+## Repository
 
-A blue button should appear to click: _Make Public_,
+[Find the project repository here.](https://github.com/MerelMoehn/cheffies-api)
 
-Another blue button should appear to click: _Open Browser_.
+# Table of Contents
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Contents
+- [General introduction and instructions](#general-introduction-and-instructions)
+  * [Project Approach](#project-approach)
+  * [Epics & labels](#epics-&-labels)
+  * [Project Planning](#project-planning)
+- [User stories](#user-stories)
+- [Data Model](#the-data-model)
+  * XXX
+  * XXX
+- [Technology Used](#technology-used)
+  * [Languages used](#languages-used)
+  * [Frameworks & Libraries used](#frameworks-and-libraries-used)
+- [Testing](#testing)
+  * [Manual Testing](#manual-testing)
+  * [Automated Testing](#automated-testing)
+  * [Bugs found and solved](#bugs-found-and-solved)
+    * [Unsolved bugs](#unsolved-bugs)
+- [Deployment](#deployment)
+  * [Deployment steps](#deployment-steps)
+  * [Creating a local clone](#creating-a-local-clone)
+- [Credits](#credits)
+  * [Code](#code)
+    * [Code Institute](#code-institute)
+  * [Acknowledgments](#acknowledgements)
 
-A blue button should appear to click: _Make Public_,
+# General introduction and instructions
+## Project Approach
+This application is built using an agile approach. Therefore, the functionalities were broken down into Epics & User stories, and these picked up in sprints. Each sprint consisted of two weeks. 
 
-Another blue button should appear to click: _Open Browser_.
+## Epics & labels
+The application features were broken down into Epics and hence in User Stories. 
+As the approach for each app was quite repetitive and only focus on the back-end, the Epics and User Stories have a somewhat basic setup. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The following Epics were defined:
+- Recipe Models: all work related to both the Recipe App and the Ingredient App.
+- Social Models: all work related to the Follower, Like, and Comment App.
+- User Models: all work related to the Profile App.
 
-To log into the Heroku toolbelt CLI:
+Additional labels used:
+- Bug: to label the bugs found and solved during the project
+- Documentation: to label all stories related to creating the correct and sufficient documentation.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Project Planning
+The project was planned and built in three sprints each consisting of two weeks. The project tool used was GitHub Projects & Issues. The issues were mapped on a kanban board using labels and swimming lanes.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+[View stories/bugs included in sprint 1.](https://github.com/MerelMoehn/cheffies-api/milestone/1?closed=1)
+[View stories/bugs included in sprint 2.](https://github.com/MerelMoehn/cheffies-api/milestone/2?closed=1)
+[View stories/bugs included in sprint 3.](https://github.com/MerelMoehn/cheffies-api/milestone/3?closed=1)
 
-------
+# User stories
+The user stories for the cheffies-API are repetitive. For each App we create a model, the URL pattern, the serializer, include it in the installed apps, etc. Therefore, the stories are not as extensive as they are in the Cheffies React (Front-end) repository. 
 
-## Release History
+# Data model & CRUD breakdown
+[Click here for related user story.](https://github.com/MerelMoehn/cheffies-api/issues/1)
+The data model was created in LucidChart. 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<img src="media/Cheffies_ERD.jpeg">
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## The Recipes Model
+- owner = This is a ForeignKey to the User model. It creates a relation between a User and a Recipe.
+- created_at = is an automatically added DateTime instance when the recipe is created.
+- updated_at = is an automatically added DateTime instance when the recipe is updated.
+- title = A CharField instance with the Title of the recipe.
+- instructions = A TextField instance with the instructions to follow for each recipe.
+- category = An option instance to state whether the recipe is a starter, main, desert or snack.
+- cooking_time = An integer instance to show how much cooking time is required for this recipe.
+- prep_time = An integer instance to show how much preporation time is required for this recipe.
+- image = An image field instance that allows the user to upload an image. Otherwise a default image is shown.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## The Ingredients Model
+- owner = This is a ForeignKey to the User model. It creates a relation between a User and a Ingredient.
+- created_at = is an automatically added DateTime instance when the recipe is created.
+- recipe = This is a ForeignKey to the Recipe model. It creates a relation between a Recipe and a Ingredient.
+- title = A CharField instance with the Name of the Ingredient.
+- amount_required = An integer instance to show how much is required of each ingredient.
+- measure_unit = An option instance to indicate which unit is required for the ingredient. Options are cup(s), gram, tablespoon(s), item, ml, L, kg, ounce.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## The Profiles Model
+- owner = This is a ForeignKey to the User model. It creates a relation between a User and a Profile.
+- created_at = is an automatically added DateTime instance when the Profile is created.
+- updated_at = is an automatically added DateTime instance when the Profile is updated.
+- bio = is a textfield in which a user can give a short description about him/herself.
+- image = is an ImageField (including a default) so that an user can upload his/her own picture.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## The Comments Model
+- recipe = This is a ForeignKey to the Recipe model. It creates a relation between a Recipe and a Comment.
+- content = This is a textfield with the comment text.
+- owner = This is a ForeignKey to the User model. It creates a relation between a User and a Comment.
+- created_at = is an automatically added DateTime instance when the Comment is created.
+- updated_at = is an automatically added DateTime instance when the Comment is updated.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## The Likes Model
+- recipe = This is a ForeignKey to the Recipe model. It creates a relation between a Recipe and a Like.
+- owner = This is a ForeignKey to the User model. It creates a relation between a User and a Like.
+- created_at = is an automatically added DateTime instance when the Like is created.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## The Followers Model
+- owner = An owner is a User instance that follows another user. This is a ForeignKey to the User model. It creates a relation between a User and a Follower.
+- created_at = is an automatically added DateTime instance when the Follower is created.
+- followed = is the User that is followed by the owner (another user). This is a ForeignKey to the User model.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## CRUD breakdown
+| model     | endpoints                    | create        | retrieve | update | delete | filter                   | text search |
+| --------- | ---------------------------- | ------------- | -------- | ------ | ------ | ------------------------ | ----------- |
+| recipes     | recipes/<br>recipes/:id/         | yes           | yes      | yes    | yes    | profile<br>liked<br>feed | title       |
+| ingredients     | ingredients/<br>ingredients/:id/         | yes           | yes      | yes    | yes    | profile<br>liked<br>feed | name       |
+| users     | users/<br>users/:id/         | yes           | yes      | yes    | no     | no                       | no          |
+| profiles  | profiles/<br>profiles/:id/   | yes (signals) | yes      | yes    | no     | following<br>followed    | name        |
+| likes     | likes/<br>likes/:id/         | yes           | yes      | no     | yes    | no                       | no          |
+| comments  | comments/<br>comments/:id/   | yes           | yes      | yes    | yes    | recipe                     | no          |
+| followers | followers/<br>followers/:id/ | yes           | yes      | no     | yes    | no                       | no          |
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+# Technology used
+## Languages used
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Frameworks & Libraries used
+- [Django](https://www.djangoproject.com/)
+  - This website is built using Django, a high-level Python web framework. I have also used Django to provide an admin view, create forms and test my website. Further features used include 
+  - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html) I used Allauth for user authentification. 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+# Testing
+Manual tests that have been done:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Automated testing
+In total there are 16 automated tests built to test the views of each app.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Bugs found and solved
+Throughout the project there were multiple bugs found and solved. These bugs were logged on the GitHub project and can be reviewed via the following link: [Click here to review the bugs.](https://github.com/MerelMoehn/cheffies-api/labels/bug) 
 
-------
+### Unsolved bugs
+At the moment of submitting and deployment, there were XXX
 
-## FAQ about the uptime script
+# Deployment
+## Deployment steps
+- set the following environment variables:
+    - CLIENT_ORIGIN
+    - CLOUDINARY_URL
+    - DATABASE_URL
+    - DISABLE_COLLECTSTATIC
+    - SECRET_KEY
+- installed the following libraries to handle database connection:
+    - psycopg2
+	- dj-database-url
+- configured dj-rest-auth library for JWTs
+- set allowed hosts
+- configured CORS:
+	- set allowed_origins
+- set default renderer to JSON
+- added Procfile with release and web commands
+- gitignored the env&#46;py file
+- generated requirements.txt
+- deployed to Heroku
 
-**Why have you added this script?**
+## Creating a local clone
+You can create a local clone of the repository via the following steps:
+1. navigate to the main page of the repository
+2. download the code
+3. Copy the URL for the repository.
+4. Open Terminal
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type git clone, and then paste the URL you copied earlier.
+7. Press Enter to create your local clone.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+For more detailed instructions, navigate to the following page:
+https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
-**How will this affect me?**
+# Credits
+## Code
+### Code Institute:
+  - I based the set up of this project on the Code Institute DRF walkthrough projects. I have customised my API wherever possible.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+## Acknowledgements
+- Thank you to my mentor for helpful feedback, industry insights and recommended tools.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- Thank you to the tutors and staff at Code Institute for their support.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+Thank you!

@@ -20,10 +20,3 @@ class IngredientSerializer(serializers.ModelSerializer):
             )
         ]
 
-    # def create(self, validated_data):
-    #     try:
-    #         return super().create(validated_data)
-    #     except serializers.ValidationError:
-    #         raise serializers.ValidationError({
-    #             'detail': 'possible duplicate'
-    #         })
