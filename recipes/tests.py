@@ -24,7 +24,7 @@ class RecipeListViewTests(APITestCase):
         response = self.client.post('/recipes/', {
             'title': 'nice recipe',
             'instructions': 'cook',
-            'cooking_time': '23', 
+            'cooking_time': '23',
             'prep_time': '25'})
         count = Recipe.objects.count()
         self.assertEqual(count, 1)
