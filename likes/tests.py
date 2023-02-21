@@ -7,7 +7,8 @@ from rest_framework.test import APITestCase
 
 class LikeListViewTests(APITestCase):
     def setUp(self):
-        self.merel = User.objects.create_user(username='merel', password='password')
+        self.merel = User.objects.create_user(
+            username='merel', password='password')
         self.recipe_1 = Recipe.objects.create(
             owner=self.merel,
             title='a recipe',
@@ -39,8 +40,10 @@ class LikeListViewTests(APITestCase):
 
 class LikeDetailViewTests(APITestCase):
     def setUp(self):
-        self.merel = User.objects.create_user(username='merel', password='password')
-        self.laura = User.objects.create_user(username='laura', password='password')
+        self.merel = User.objects.create_user(
+            username='merel', password='password')
+        self.laura = User.objects.create_user(
+            username='laura', password='password')
         self.recipe = Recipe.objects.create(
             owner=self.merel,
             title='a recipe',

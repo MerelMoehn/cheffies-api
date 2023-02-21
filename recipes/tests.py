@@ -37,8 +37,10 @@ class RecipeListViewTests(APITestCase):
 
 class RecipeDetailViewTests(APITestCase):
     def setUp(self):
-        self.merel = User.objects.create_user(username='merel', password='password')
-        self.laura = User.objects.create_user(username='laura', password='password')
+        self.merel = User.objects.create_user(
+            username='merel', password='password')
+        self.laura = User.objects.create_user(
+            username='laura', password='password')
         Recipe.objects.create(
             owner=self.merel,
             title='a recipe',
