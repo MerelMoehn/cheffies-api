@@ -1,0 +1,65 @@
+Migrations for 'account':
+  .heroku/python/lib/python3.9/site-packages/allauth/account/migrations/0003_auto_20230222_1440.py
+    - Alter field id on emailaddress
+    - Alter field id on emailconfirmation
+Migrations for 'socialaccount':
+  .heroku/python/lib/python3.9/site-packages/allauth/socialaccount/migrations/0004_auto_20230222_1440.py
+    - Alter field id on socialaccount
+    - Alter field id on socialapp
+    - Alter field id on socialtoken
+Operations to perform:
+  Apply all migrations: account, admin, auth, authtoken, comments, contenttypes, followers, ingredients, likes, profiles, recipes, sessions, sites, socialaccount
+Running migrations:
+  Applying account.0003_auto_20230222_1440...Traceback (most recent call last):
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.DependentObjectsStillExist: cannot drop sequence account_emailaddress_id_seq because column id of table account_emailaddress requires it
+HINT:  You can drop column id of table account_emailaddress instead.
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/app/manage.py", line 22, in <module>
+    main()
+  File "/app/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/__init__.py", line 419, in execute_from_command_line
+    utility.execute()
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/__init__.py", line 413, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/base.py", line 354, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/base.py", line 398, in execute
+    output = self.handle(*args, **options)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/base.py", line 89, in wrapped
+    res = handle_func(*args, **kwargs)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/commands/migrate.py", line 244, in handle
+    post_migrate_state = executor.migrate(
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/migrations/executor.py", line 117, in migrate
+    state = self._migrate_all_forwards(state, plan, full_plan, fake=fake, fake_initial=fake_initial)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/migrations/executor.py", line 147, in _migrate_all_forwards
+    state = self.apply_migration(state, migration, fake=fake, fake_initial=fake_initial)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/migrations/executor.py", line 227, in apply_migration
+    state = migration.apply(state, schema_editor)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/migrations/migration.py", line 126, in apply
+    operation.database_forwards(self.app_label, schema_editor, old_state, project_state)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/migrations/operations/fields.py", line 244, in database_forwards
+    schema_editor.alter_field(from_model, from_field, to_field)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/base/schema.py", line 594, in alter_field
+    self._alter_field(model, old_field, new_field, old_type, new_type,
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/postgresql/schema.py", line 196, in _alter_field
+    super()._alter_field(
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/base/schema.py", line 780, in _alter_field
+    self.execute(sql, params)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/base/schema.py", line 145, in execute
+    cursor.execute(sql, params)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/app/.heroku/python/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.InternalError: cannot drop sequence account_emailaddress_id_seq because column id of table account_emailaddress requires it
+HINT:  You can drop column id of table account_emailaddress instead.
