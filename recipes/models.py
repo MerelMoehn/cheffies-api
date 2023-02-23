@@ -25,7 +25,7 @@ class Recipe(models.Model):
     prep_time = models.IntegerField(blank=False)
     image = models.ImageField(
         upload_to='images/',
-        default='../rachel-park-hrlvr2ZlUNk-unsplash_eseqep',
+        default='../rachel-park-hrlvr2ZlUNk-unsplash_eseqep.jpg',
         blank=True
     )
 
