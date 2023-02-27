@@ -1,7 +1,8 @@
 from cheffies_api.permissions import IsOwnerOrReadOnly
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from .models import Ingredient
 from .serializers import IngredientSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class IngredientList(generics.ListCreateAPIView):
@@ -11,6 +12,14 @@ class IngredientList(generics.ListCreateAPIView):
     serializer_class = IngredientSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Ingredient.objects.all()
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'recipe',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
