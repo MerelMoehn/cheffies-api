@@ -38,7 +38,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ["https://8000-merelmoehn-cheffiesapi-su0g73r9t17.ws-eu86.gitpod.io"]
+CSRF_TRUSTED_ORIGINS = ["https://merelmoehn-cheffies-lz6nyrbhfgq.ws-eu90.gitpod.io"]
 
 
 # Application definition
