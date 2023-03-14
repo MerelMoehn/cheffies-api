@@ -4,13 +4,6 @@ from likes.models import Like
 from ingredients.models import Ingredient
 
 
-class IngredientRecSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Ingredient
-        fields = ('recipe', 'name', 'owner', 'created_at', 
-                  'amount_required', 'measure_unit')
-
-
 class RecipeSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()

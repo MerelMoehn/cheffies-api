@@ -163,7 +163,16 @@ The data model was created in LucidChart.
   - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html) I used Allauth for user authentification. 
 
 # Testing
-Manual tests that have been done:
+Each user story is tested and a test report including screenshot can be found in each respective user story on Github. 
+To give the reader an overview, the following tests were done:
+- [Test to see a list of profiles, the automatic creation of a profile, and the update of profile data (name, image, bio)](https://github.com/MerelMoehn/cheffies-api/issues/3#issuecomment-1468016700)
+- [Test to see a list of followers, creating a follower, validating the validation for duplicates, and see the follower count & id in profiles](https://github.com/MerelMoehn/cheffies-api/issues/4#issuecomment-1468024320)
+- [Test to see a list of likes, create like, validate the validation on likes, and check the like_count and ID at /recipes](https://github.com/MerelMoehn/cheffies-api/issues/5#issuecomment-1468029198)
+- [Test to see a list of comments, create comment, and check the comment_count at /recipes](https://github.com/MerelMoehn/cheffies-api/issues/6#issuecomment-1468048723)
+
+
+
+
 
 
 ## Automated testing
