@@ -170,12 +170,7 @@ To give the reader an overview, the following tests were done:
 - [Test to see a list of likes, create like, validate the validation on likes, and check the like_count and ID at /recipes](https://github.com/MerelMoehn/cheffies-api/issues/5#issuecomment-1468029198)
 - [Test to see a list of comments, create comment, and check the comment_count at /recipes](https://github.com/MerelMoehn/cheffies-api/issues/6#issuecomment-1468048723)
 - [Test to see a list of recipes, create recipe, and update a recipe](https://github.com/MerelMoehn/cheffies-api/issues/7#issuecomment-1468059442)
-
-
-
-
-
-
+- [Test to see a list of ingredients, create ingredient, try to create a duplicate ingredient, and update a ingredient](https://github.com/MerelMoehn/cheffies-api/issues/8#issuecomment-1468069887)
 
 ## Automated testing
 In total there are 16 automated tests built to test the views of each app.
