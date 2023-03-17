@@ -172,13 +172,13 @@ To give the reader an overview, the following tests were done:
 
 ## Automated testing
 In total there are 16 automated tests built to test the views of each app.
-
+<img src="media/automated_tests.png">
 
 ## Bugs found and solved
 Throughout the project there were multiple bugs found and solved. These bugs were logged on the GitHub project and can be reviewed via the following link: [Click here to review the bugs.](https://github.com/MerelMoehn/cheffies-api/labels/bug) 
 
 ### Unsolved bugs
-At the moment of submitting and deployment, there were XXX
+At the moment of submitting and deployment, there were 0.
 
 # Deployment
 ## Deployment steps
