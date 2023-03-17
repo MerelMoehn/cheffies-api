@@ -23,9 +23,7 @@ The app can be accessed via the following link: [Click to go to Website](https:/
   * [Epics & labels](#epics-&-labels)
   * [Project Planning](#project-planning)
 - [User stories](#user-stories)
-- [Data Model](#the-data-model)
-  * XXX
-  * XXX
+- [Data Model & Crud table](#the-data-model)
 - [Technology Used](#technology-used)
   * [Languages used](#languages-used)
   * [Frameworks & Libraries used](#frameworks-and-libraries-used)
@@ -72,15 +70,15 @@ After finishing this part I realized I should have used the same approach of use
 I have chosen not to change all the user stories afterward because that does not reflect the approach actually taken. I learned a lesson regarding back-end api stories. The user stories of the front-end application will be up to standard.
 
 | As a/an | I want to be able to... | So that I can... |
-| --- | ----------- | ----------- | ----------- |
- | [Profile App & authentication](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22User+Apps%22+is%3Aclosed) | 
+| ----------- | ----------- | ----------- |
+  | [Profile App & authentication](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22User+Apps%22+is%3Aclosed) | 
  | UnRegistered User | to Register | to create my own profile and recipes | 
  | Registered User | log-in & out | So I can make use of the cheffies application | 
  | Registered User | Update my profile | So I can show who I am with others | 
   | [Recipes & Ingredients App](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22Recipe+Apps%22+is%3Aclosed) | 
  | Registered User | Create, update & delete recipes | So that I can share my recipes with others| 
  | Registered User | Create, update & delete recipes | So that I can add/delete/update ingredients to my recipes | 
- | [Social App](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22Social+Apps%22+is%3Aclosed) | 
+  | [Social App](https://github.com/MerelMoehn/cheffies-api/issues?q=label%3A%22Social+Apps%22+is%3Aclosed) | 
  | Registered User | Like a recipe | To show others that I liked the recipe | 
  | Registered User | Comment on a recipe | To show others what I think of the recipe | 
  | Registered User | Follow another user | To see their recipes on my feed | 
