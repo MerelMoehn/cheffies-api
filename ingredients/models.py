@@ -27,4 +27,4 @@ class Ingredient(models.Model):
         unique_together = ['name', 'recipe']
 
     def __str__(self):
-        return f'{self.amount_required} {self.name} {self.measure_unit} in {self.recipe}'
+        return f'{self.name} in {self.recipe}'

@@ -19,4 +19,3 @@ class IngredientSerializer(serializers.ModelSerializer):
                 message=_("Duplicate ingredient detected.")
             )
         ]
-

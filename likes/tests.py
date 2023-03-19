@@ -24,15 +24,6 @@ class LikeListViewTests(APITestCase):
         response = self.client.get('/likes/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # def test_logged_in_user_can_like(self):
-    #     self.client.login(username='merel', password='password')
-    #     response = self.client.post('/likes/', {
-    #         'owner': self.merel,
-    #         'recipe': self.recipe_1})
-    #     count = Like.objects.count()
-    #     self.assertEqual(count, 1)
-    #     self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
     def test_user_not_logged_in_cannot_like(self):
         response = self.client.post('/likes/', {'owner': self.merel})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
@@ -63,8 +54,3 @@ class LikeDetailViewTests(APITestCase):
     def test_cannot_retrieve_like_with_invalid_id(self):
         response = self.client.get('/likes/999/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-    # def test_user_can_delete_like(self):
-    #     self.client.delete('/likes/1/')
-    #     likes = Like.objects.all()
-    #     self.assertEqual(len(likes), 0)
