@@ -170,6 +170,9 @@ To give the reader an overview, the following tests were done:
 - [Test to see a list of recipes, create recipe, and update a recipe](https://github.com/MerelMoehn/cheffies-api/issues/7#issuecomment-1468059442)
 - [Test to see a list of ingredients, create ingredient, try to create a duplicate ingredient, and update a ingredient](https://github.com/MerelMoehn/cheffies-api/issues/8#issuecomment-1468069887)
 
+## Validators
+All python code has been run through the python validator without issues.
+
 ## Automated testing
 In total there are 16 automated tests built to test the views of each app.
 I focused on creating automated test for the custom models Recipes and Ingredients. 
