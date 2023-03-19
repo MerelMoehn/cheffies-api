@@ -172,6 +172,11 @@ To give the reader an overview, the following tests were done:
 
 ## Automated testing
 In total there are 16 automated tests built to test the views of each app.
+I focused on creating automated test for the custom models Recipes and Ingredients. 
+I had some issues with the update/creation tests for some models and therefore not all models
+have tests for update & create. I have discussed this with the tutors but they were not able to help.
+Not all models have automated tests due to time constraints and thus prioritization.
+are largely based on the Moments walkthrough app.
 <img src="media/automated_tests.png">
 
 ## Bugs found and solved
